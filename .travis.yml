@@ -24,3 +24,13 @@ before_script:
 script:
   - julia build_tarballs.jl
 
+deploy:
+  provider: releases
+  api_key:
+    secure: Nw9d4hjSaGVe+n8PZc9uuu6H4aAzRo2+Kdb4fcIGxQbAj13KlBaQSmwhibcGKmGwCyQW6Xi1clHIj4wjzH/CAXqDho+aJxKMafjbAD+dWN7sHfGptVf1EiepFX7JeMXzyw8RpzQPbRcWtBWyj9enx1TwZ9mzGfbKknNAwXJEq77DnUUeYop9gFy2OVskWLIP8o3D9Q5TTxMzzOGbboPwFScrO+dN3BMhPo8bnMH8D7kXjhNUi+PO0KOU67QPUfnNYUBbV3DjIS1aRq5wEWqnqVMbBB+8jzZY/5STOOhjWf3p73mtyBkD9JgZgAU+8nF/EtHNG9Zc9La7VXFjJKEoK+LugOnxilHh4dM8R1z9n5LnPxqhqNXvv1hiui7jQwMBWuHYwh7/PkBM9Kt3gqgYf0rokqvopWffANaPQ/9RgsPh7Ebghqq64Si5KZiaisRSrKMLd0l2u1ubRTC4+J/HAt7hHJDMFFNmHST3LfCNuQFnQpqV4ol6AsqWt5g5WKBgJfpAJSZOZZhlBZqS+7hxuRa5DMMSoei48IN/qcyEQ4FqKjnjTCEktcg7WuiznGHYguCwzHzUOIILxHntKvChuuo1momvuWCwM3dQlgS2b3sp/2QyjQxMLySZ2iy/aSrYSzULlfetQKlDgBDyykDnTUTaoSIAxlhnffvQn6BsH44=
+  file_glob: true
+  file: products/*
+  skip_cleanup: true
+  on:
+    repo: hessammehr/FontconfigBuilder
+    tags: true
