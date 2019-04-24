@@ -15,9 +15,13 @@ sources = [
 # Bash recipe for building across all platforms
 script = raw"""
 cd $WORKSPACE/srcdir
-if [[ $target == *"linux"* ]]; then         wget "https://github.com/hessammehr/UtilLinuxBuilder/releases/download/v2.33.0/UtilLinuxBuilder.v2.33.0.$target.tar.gz";         tar xzf UtilLinuxBuilder*.tar.gz --directory $prefix; fi
+if [[ $target == *"linux"* ]]; then
+    wget "https://github.com/hessammehr/UtilLinuxBuilder/releases/download/v2.33.0/UtilLinuxBuilder.v2.33.0.$target.tar.gz"
+    tar xzf UtilLinuxBuilder*.tar.gz --directory $prefix
+fi
 wget https://github.com/hessammehr/GperfBuilder/releases/download/v3.1.0-0/Gperf.v3.1.0.x86_64-linux-gnu.tar.gz
 tar xzf Gperf*.tar.gz --directory $prefix
+
 cd $prefix/lib/pkgconfig/
 
 if [ ! -f zlib.pc ]; then
